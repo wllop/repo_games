@@ -35,7 +35,6 @@ Lugar
 Lunar
 Mamá
 Mayor
-Melodía
 Melón
 Menor
 Menú
@@ -55,3 +54,5 @@ Tambor
 Telón
 Turrón
 Vapor
+Karim
+Isabel

@@ -21,6 +21,19 @@ let llanas = [];
 let esdrujulas = [];
 let wrongWords = [];
 
+function buscarPalabra(cadena) {
+  for (let i = 0; i < wrongWords.length; i++) {
+    const [palabra, repeticiones] = wrongWords[i].split(":");
+    if (palabra === cadena) {
+      const numRepeticiones = parseInt(repeticiones);
+      wrongWords[i] = `${palabra}:${numRepeticiones + 1}`; // Incrementar el número de repeticiones
+      return numRepeticiones + 1;
+    }
+  }
+
+  return 0;
+}
+
 // Función para obtener una palabra aleatoria de un arreglo
 function getRandomWord(array) {
   return array[Math.floor(Math.random() * array.length)];
@@ -53,18 +66,21 @@ function loadWords() {
     .then(response => response.text())
     .then(data => {
       agudas = data.split('\n');
+   
     });
 
   fetch('https://raw.githubusercontent.com/wllop/repo_games/main/ale_game/llanas.txt')
     .then(response => response.text())
     .then(data => {
       llanas = data.split('\n');
+      
     });
 
   fetch('https://raw.githubusercontent.com/wllop/repo_games/main/ale_game/esdrujulas.txt')
     .then(response => response.text())
     .then(data => {
       esdrujulas = data.split('\n');
+ 
     });
 }
 
@@ -90,6 +106,9 @@ function showoki() {
   }
 // Función para verificar la respuesta del usuario
 function checkAnswer(type) {
+  agudaButton.setAttribute("disabled","true");
+  llanaButton.setAttribute("disabled","true"); 
+  esdrujulaButton.setAttribute("disabled","true");
   let correctType = '';
 
   if (agudas.includes(currentWord)) {
@@ -109,9 +128,14 @@ function checkAnswer(type) {
     resultElement.style.color = 'red';
     score_mal++;
     if(score_mal==1){
-      wrongWords.push("Palabras a repasar:");
+      wrongWords.push("Repasar(repe.):");
     }
-    wrongWords.push(currentWord);
+    const repeticiones = buscarPalabra(currentWord);
+    if(repeticiones===0) //Sólo push de las nuevas palabras
+    {
+      wrongWords.push(`${currentWord}:1`);
+    }
+    
     updateWrongWordsList();
   }
   wrongWordsList.classList.remove('wrong-words-expanded');
@@ -123,7 +147,11 @@ function checkAnswer(type) {
     resultElement.textContent = '';
     showNewWord();
     intentosElement.textContent = intentos;
+    agudaButton.removeAttribute("disabled");
+    llanaButton.removeAttribute("disabled"); 
+    esdrujulaButton.removeAttribute("disabled");
   }, 2500);
+  
 }
 
 // Event listeners para los botones de respuesta

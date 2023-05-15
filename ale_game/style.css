@@ -18,12 +18,25 @@ h1 {
   color: #ff7700;
 }
 
+
+h2 {
+  font-size: 30px;
+  color: black;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 32px;
+  color: black;
+}
+
 #word-container {
-  margin: 40px 0;
+  margin: 30px 0;
 }
 
 #word {
   font-size: 36px;
+  text-decoration: underline;
   color: #333;
 }
 
@@ -36,7 +49,7 @@ h1 {
 
 .option {
   padding: 12px 24px;
-  font-size: 18px;
+  font-size: 25px;
   border: none;
   border-radius: 20px;
   background-color: #ff7700;
@@ -61,7 +74,7 @@ h1 {
 }
 
 #score-value {
-  color: #ff7700;
+  color: green;
 }
 
 /* Estilos para dispositivos móviles */

@@ -9,7 +9,7 @@ const score_malElement = document.getElementById('score_mal-value');
 const intentosElement = document.getElementById('intentos');
 let score = 0;
 let score_mal = 0;
-let intentos=0;
+let intentos=1;
 let currentWord = '';
 let agudas = [];
 let llanas = [];
@@ -56,6 +56,11 @@ function showNewWord() {
   wordElement.textContent = currentWord;
 }
 
+function showoki() {
+     let oki=["Perfecto","Olé tú","Llegarás lejos :)","Me quedo loco","Let's go","IM PRESIONANTE","¡Qué arte tienes!","Ole, Ole y Ole"];
+     respuesta = getRandomWord(oki);
+     return respuesta;
+  }
 // Función para verificar la respuesta del usuario
 function checkAnswer(type) {
   let correctType = '';
@@ -69,7 +74,7 @@ function checkAnswer(type) {
   }
 
   if (type === correctType) {
-    resultElement.textContent = '¡Correcto!';
+    resultElement.textContent = showoki();
     resultElement.style.color = 'green';
     score++;
   } else {

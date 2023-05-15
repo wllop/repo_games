@@ -34,6 +34,11 @@ h3 {
   margin: 30px 0;
 }
 
+#options-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
 #word {
   font-size: 36px;
   text-decoration: underline;
@@ -61,6 +66,7 @@ h3 {
 .option:hover {
   background-color: #ff9933;
 }
+
 #result {
   margin-bottom: 10px;
   font-weight: bold;
@@ -77,6 +83,45 @@ h3 {
   color: green;
 }
 
+#wrong-words-container {
+  text-align: center;
+  margin-top: 30px;
+  position: relative; /* Añadido */
+}
+
+#wrong-words-list {
+  max-height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute; /* Añadido */
+  top: 40px; /* Añadido */
+  left: 0; /* Añadido */
+  right: 0; /* Añadido */
+  margin: auto; /* Añadido */
+  width: 80%; /* Añadido */
+}
+
+.wrong-words-expanded {
+  max-height: 270px!important;
+  overflow: visible;
+  position: fixed!important;
+  width: 350px!important;
+  scroll-behavior: auto;
+  overflow-y: auto!important;
+  border: 1px solid #ddd;
+  background: #f1f1f1;
+  font-size: larger;
+  top: 100px!important;
+  visibility:visible!important;
+}
+
+
+
+
 /* Estilos para dispositivos móviles */
 @media only screen and (max-width: 600px) {
   .container {
@@ -86,5 +131,35 @@ h3 {
   #options {
     flex-direction: column;
     gap: 10px;
+  }
+  
+  #options-container {
+    margin-top: 40px;
+  }
+
+
+}
+
+#toggle-words-button {
+  display: block;
+  margin: 10px auto;
+  background-color: #007BFF;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  #wrong-words-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #toggle-words-button {
+    margin: 20px auto;
   }
 }

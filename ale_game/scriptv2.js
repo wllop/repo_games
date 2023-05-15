@@ -7,6 +7,11 @@ const resultElement = document.getElementById('result');
 const scoreElement = document.getElementById('score-value');
 const score_malElement = document.getElementById('score_mal-value');
 const intentosElement = document.getElementById('intentos');
+const wrongWordsElement =  document.getElementById('wrong-words-container');
+const wrongWordsList = document.getElementById('wrong-words-list');
+const toggleWordsButton = document.getElementById('toggle-words-button');
+
+
 let score = 0;
 let score_mal = 0;
 let intentos=1;
@@ -14,11 +19,33 @@ let currentWord = '';
 let agudas = [];
 let llanas = [];
 let esdrujulas = [];
+let wrongWords = [];
 
 // Función para obtener una palabra aleatoria de un arreglo
 function getRandomWord(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
+
+function updateWrongWordsList() {
+    wrongWordsList.innerHTML = '';
+    wrongWords.forEach(function (word) {
+      const listItem = document.createElement('li');
+      listItem.textContent = word;
+      wrongWordsList.appendChild(listItem);
+    });
+  
+    if (wrongWords.length > 0) {
+      wrongWordsList.classList.add('wrong-words-expanded');
+    } else {
+      wrongWordsList.classList.remove('wrong-words-expanded');
+    }
+  }
+  
+// Event listener para el botón de desplegar/ocultar palabras incorrectas
+
+toggleWordsButton.addEventListener('click', function () {
+    wrongWordsList.classList.toggle('wrong-words-expanded');
+  });
 
 // Función para cargar las palabras desde los ficheros
 function loadWords() {
@@ -81,14 +108,21 @@ function checkAnswer(type) {
     resultElement.textContent = `¡Incorrecto! Era una palabra ${correctType}.`;
     resultElement.style.color = 'red';
     score_mal++;
+    if(score_mal==1){
+      wrongWords.push("Palabras a repasar:");
+    }
+    wrongWords.push(currentWord);
+    updateWrongWordsList();
   }
+  wrongWordsList.classList.remove('wrong-words-expanded');
   intentos++;
   scoreElement.textContent = score;
   score_malElement.textContent = score_mal;
-  intentosElement.textContent = intentos;
+ 
   setTimeout(() => {
     resultElement.textContent = '';
     showNewWord();
+    intentosElement.textContent = intentos;
   }, 2500);
 }
 

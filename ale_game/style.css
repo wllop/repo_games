@@ -1,20 +1,30 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   text-align: center;
+  background-color: #f7f7f7;
 }
 
 .container {
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
   margin-top: 0;
+  color: #ff7700;
 }
 
 #word-container {
   margin: 40px 0;
+}
+
+#word {
+  font-size: 36px;
+  color: #333;
 }
 
 #options {
@@ -25,19 +35,43 @@ h1 {
 }
 
 .option {
-  padding: 10px 20px;
+  padding: 12px 24px;
   font-size: 18px;
+  border: none;
+  border-radius: 20px;
+  background-color: #ff7700;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.option:hover {
+  background-color: #ff9933;
 }
 
 #result {
   margin-bottom: 20px;
   font-weight: bold;
+  color: #ff7700;
 }
 
 #score {
   font-size: 20px;
+  color: #333;
 }
 
 #score-value {
-  color: blue;
+  color: #ff7700;
+}
+
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+  
+  #options {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

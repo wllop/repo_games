@@ -57,7 +57,7 @@ function showNewWord() {
 }
 
 function showoki() {
-     let oki=["Perfecto","Olé tú","Llegarás lejos :)","Me quedo loco","Let's go","IM PRESIONANTE","¡Qué arte tienes!","Ole, Ole y Ole"];
+    let oki=["¿Cómo están los máquinas?","¡Brutal!","Perfecto","Olé tú","Llegarás lejos :)","Me quedo loco","Come on!","Go for it!","Good job!","Let's go!","Vamossssss!","¡Impresionante!","¡Qué arte tienes!","Ole, Ole y Ole"];
      respuesta = getRandomWord(oki);
      return respuesta;
   }
@@ -89,7 +89,7 @@ function checkAnswer(type) {
   setTimeout(() => {
     resultElement.textContent = '';
     showNewWord();
-  }, 1500);
+  }, 2500);
 }
 
 // Event listeners para los botones de respuesta

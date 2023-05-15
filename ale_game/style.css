@@ -61,11 +61,11 @@ h3 {
 .option:hover {
   background-color: #ff9933;
 }
-
 #result {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-weight: bold;
   color: #ff7700;
+  font-size: 25px;
 }
 
 #score {

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tablas de Multiplicar</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>¡Multiplica tu conocimiento!</h1>
+  <h6>¿Cuántas multiplicaciones podrás hacer en un minuto?</h6>
+  <div id="game-container">
+    <div id="question-area">
+      <span id="question"></span>
+      <input type="number" id="answer" placeholder="Tu respuesta">
+      <div id="mobile-keyboard">
+        <div class="key-row">
+          <div class="key" onclick="enterNumber(1)">1</div>
+          <div class="key" onclick="enterNumber(4)">4</div>
+          <div class="key" onclick="enterNumber(7)">7</div>
+        </div>
+        <div class="key-row">
+          <div class="key" onclick="enterNumber(2)">2</div>
+          <div class="key" onclick="enterNumber(5)">5</div>
+          <div class="key" onclick="enterNumber(8)">8</div>
+        </div>
+        <div class="key-row">
+          <div class="key" onclick="enterNumber(3)">3</div>
+          <div class="key" onclick="enterNumber(6)">6</div>
+          <div class="key" onclick="enterNumber(9)">9</div>
+        </div>
+        <div class="key-row">
+          <div class="key2"></div>
+        </div>
+        <div class="key-row">
+          <div class="key" onclick="enterNumber(0)">0</div>
+        </div>
+        <div class="key-row">
+          <div class="key2" ></div>
+        </div>
+      </div>
+
+    </div>
+    <button id="submit" onclick="checkAnswer()">COMPROBAR</button>
+    <div id="feedback"></div>
+    <div id="score">Puntuación: <span id="score-value">0</span></div>
+    <div id="timer">Tiempo restante: <span id="timer-value">60</span> segundos</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

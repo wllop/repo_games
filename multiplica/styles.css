@@ -1,21 +1,21 @@
 body {
-  margin: 0;
-  padding: 0;
   font-family: Arial, sans-serif;
   background-color: #F4F4F4;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
   text-align: center;
   padding: 10px;
-  margin:10px;
+  margin: 10px;
 }
-h6{
+
+h6 {
   text-align: center;
-    padding: 0px;
-    margin-bottom: 5px;
-    margin-top: 0px;
-    font-size: medium;
+  padding: 0;
+  margin: 5px 0;
+  font-size: medium;
 }
 
 #game-container {
@@ -71,13 +71,14 @@ h6{
   cursor: pointer;
   margin-bottom: 8px;
 }
+
 #answer {
   margin-top: 10px;
   padding: 10px;
   font-size: 23px;
   width: 40%;
-    position: relative;
-    margin-bottom: 15px;
+  position: relative;
+  margin-bottom: 15px;
 }
 
 #submit {
@@ -110,4 +111,193 @@ h6{
 #timer-value {
   font-weight: bold;
   color: #0004ff;
+}
+
+@media screen and (max-width: 768px) {
+  #answer {
+    width: 70%;
+  }
+
+  #submit {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #answer {
+    width: 90%;
+  }
+
+  #submit {
+    width: 90%;
+  }
+
+  #mobile-keyboard {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
+} font-weight: bold;
+  color: #0004ff;
+}
+
+@media screen and (max-width: 768px) {
+  #answer {
+    width: 70%;
+  }
+
+  #submit {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #answer {
+    width: 90%;
+  }
+
+  #submit {
+    width: 90%;
+  }
+
+  #mobile-keyboard {
+    gap: 5px;
+  }
+}body {
+  font-family: Arial, sans-serif;
+  background-color: #F4F4F4;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+}
+
+h6 {
+  text-align: center;
+  padding: 0;
+  margin: 5px 0;
+  font-size: medium;
+}
+
+#game-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  border: 2px solid #CCCCCC;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+#question-area {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#question {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#mobile-keyboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  text-align: center;
+  border-top: 15px;
+}
+
+.key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  font-size: 24px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.keyv2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  font-size: 24px;
+  background-color: #FFFFFF;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+#answer {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 23px;
+  width: 40%;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+#submit {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #ff8000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 60%;
+}
+
+#feedback {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#score,
+#timer {
+  text-align: center;
+  font-size: 25px;
+}
+
+#score-value,
+#timer-value {
+  font-weight: bold;
+  color: #0004ff;
+}
+
+@media screen and (max-width: 768px) {
+  #answer {
+    width: 70%;
+  }
+
+  #submit {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #answer {
+    width: 90%;
+  }
+
+  #submit {
+    width: 90%;
+  }
+
+  #mobile-keyboard {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
 }

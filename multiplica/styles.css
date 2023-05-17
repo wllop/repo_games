@@ -33,7 +33,7 @@ h6 {
 }
 
 #question {
-  font-size: 24px;
+  font-size: 40px;
   font-weight: bold;
 }
 
@@ -86,12 +86,12 @@ h6 {
 }
 
 #answer {
-  margin-top: 10px;
-  padding: 10px;
-  font-size: 23px;
-  width: 40%;
+  margin-top: 5px;
+  padding: 5px;
+  font-size: 40px;
+  width: 23%;
   position: relative;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 #submit {

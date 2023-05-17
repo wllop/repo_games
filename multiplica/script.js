@@ -96,8 +96,14 @@ function enterNumber(number) {
   if (!isPlaying) {
     return;
   }
-
-  answerInput.value += number;
+  if(number=="-"){
+    answerInput.value = '';
+  }
+  else
+  {
+    answerInput.value += number;
+  }
+  
 }
 
 // Función para borrar la respuesta

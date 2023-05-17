@@ -19,7 +19,7 @@ h6 {
 }
 
 #game-container {
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
   background-color: #FFFFFF;
   border: 2px solid #CCCCCC;
@@ -52,6 +52,20 @@ h6 {
   height: 60px;
   font-size: 24px;
   background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+
+.keydel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  font-size: 24px;
+  background-color: #962337;
   color: white;
   border-radius: 5px;
   cursor: pointer;

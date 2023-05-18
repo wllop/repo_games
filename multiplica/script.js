@@ -83,7 +83,7 @@ function checkAnswer() {
     score++;
     scoreValue.textContent = score;
   } else {
-    feedbackElement.textContent = "Respuesta incorrecta";
+    feedbackElement.textContent = `Respuesta incorrecta, era: ${currentQuestion.result} `;
     feedbackElement.style.color = 'red';
     score--;
     scoreValue.textContent = score;
@@ -125,7 +125,12 @@ if(!cook)
   }
 else
   {
-    feedbackElement.innerText = `¡Fin del juego! Puntuación: ${score}. Mejor puntuación: ${cook}`;
+    feedbackElement.innerText = `¡Fin del juego! Puntuación: ${score}. `;
+    if(getCookie("resultado")>score)
+    {
+      feedbackElement.innerText += ` - Tu récord actual es: ${cook}`;
+    
+    }
     setCookie("resultado",score);
   }
  

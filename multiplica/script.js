@@ -20,15 +20,42 @@ function startGame() {
   isPlaying = true;
   score = 0;
   time = 60;
+  document.getElementById('answerv2').innerHTML="";
   scoreValue.innerText = score;
   timerValue.innerText = time;
   feedbackElement.innerText = '';
   answerInput.value = '';
   answerInput.disabled = false;
   submitButton.disabled = false;
+  clearInterval(timerInterval);
   generateQuestion();
   startTimer();
 }
+
+
+
+//Gestión cookies
+function setCookie(name, value){
+  let expires = "";
+  let date = new Date();
+  date.setTime(date.getTime() + 60 * 24 * 60 * 60 * 1000);
+  expires = "; expires=" + date.toUTCString();
+  document.cookie = name + "=" + (value || "") + expires + "; path=/";
+};
+
+
+function getCookie(name){
+  let var1 = name + "=";
+  let ca = document.cookie.split(";");
+  for (var i = 0; i < ca.length; i++) 
+  {
+    let c = ca[i];
+    while (c.charAt(0) === " ") c = c.substring(1, c.length);
+    if (c.indexOf(var1) === 0) return c.substring(var1.length,
+      c.length);
+  }
+ return null;
+};
 
 // Función para generar una nueva pregunta
 function generateQuestion() {
@@ -89,8 +116,20 @@ isPlaying = false;
 answerInput.disabled = true;
 submitButton.disabled = true;
 clearInterval(timerInterval);
-feedbackElement.innerText = `¡Fin del juego! Puntuación final: ${score}`;
+let cook=getCookie("resultado");
+if(!cook)
+  {
+  feedbackElement.innerText = `¡Fin del juego! Puntuación: ${score}`;
+  setCookie("resultado",score);
+  }
+else
+  {
+    feedbackElement.innerText = `¡Fin del juego! Puntuación: ${score}. Mejor puntuación: ${cook}`;
+    setCookie("resultado",score);
+  }
+ 
 }
+
 
 function enterNumber(number) {
   if (!isPlaying) {
@@ -98,10 +137,12 @@ function enterNumber(number) {
   }
   if(number=="-"){
     answerInput.value = '';
+    document.getElementById('answerv2').innerHTML="";
   }
   else
   {
     answerInput.value += number;
+    document.getElementById('answerv2').innerHTML+=number;
   }
   
 }
@@ -111,7 +152,7 @@ function clearAnswer() {
   if (!isPlaying) {
     return;
   }
-
+  document.getElementById('answerv2').innerHTML="";
   answerInput.value = '';
 }
 

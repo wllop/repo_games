@@ -20,6 +20,7 @@ function startGame() {
   isPlaying = true;
   score = 0;
   time = 60;
+  clearInterval();
   document.getElementById('answerv2').innerHTML="";
   scoreValue.innerText = score;
   timerValue.innerText = time;
